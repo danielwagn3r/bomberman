@@ -14,7 +14,7 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 RUN chgrp -R 0 /var/www && \
     chmod -R g=u /var/www
     
-EXPOSE 8080
+EXPOSE 8080 8009
 
 RUN chmod g=u /etc/passwd
 ENTRYPOINT [ "uid_entrypoint" ]
