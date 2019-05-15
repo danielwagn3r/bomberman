@@ -11,3 +11,8 @@ RUN curl -sS https://getcomposer.org/installer | php && \
     cp app/docker/nginx.conf /etc/nginx/nginx.conf && \
     echo 'chown -R www-data:www-data /var/www && chmod -R 755 /var/www' >> /bin/everyboot
 
+EXPOSE 8080
+
+RUN chgrp -R 0 /var/www && \
+    chmod -R g=u /var/www
+    
