@@ -1,4 +1,4 @@
-FROM whatwedo/nginx-php70:latest
+FROM whatwedo/nginx-php:latest
 
 ADD . /var/www
 WORKDIR /var/www
@@ -12,9 +12,3 @@ RUN curl -sS https://getcomposer.org/installer | php && \
     echo 'chown -R www-data:www-data /var/www && chmod -R 755 /var/www' >> /bin/everyboot
 
 EXPOSE 8080
-
-RUN chgrp -R 0 /var/www && \
-    chmod -R g=u /var/www
-    
-### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
-ENTRYPOINT [ "uid_entrypoint" ]
