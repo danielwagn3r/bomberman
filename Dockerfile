@@ -16,3 +16,5 @@ EXPOSE 8080
 RUN chgrp -R 0 /var/www && \
     chmod -R g=u /var/www
     
+### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
+ENTRYPOINT [ "uid_entrypoint" ]
